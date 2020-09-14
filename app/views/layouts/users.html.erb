@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @hello %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render template: 'layouts/users_header' %>
+    <%= yield %>
+    <div> </div>
+    <hr size="1" color="#aaa">
+    <%= render template: 'layouts/users_footer' %>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<h1>People#Find</h1>
+<p><%= @msg %></p>
+<table>
+    <%= form_tag(controller: 'people', action: 'find') do %>
+    <tr><th>find</th><td><%= text_field_tag("ff") %></td></tr>
+    <tr><th></th><td><%= submit_tag("click") %></td></tr>
+    <% end %>
+</table>
+<hr>
+<table>
+    <tr>
+        <th>Id</th><th>Name</th><th>Age</th><th>Mail</th>
+    </tr>
+    <% @people.each do |item| %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.age %></td>
+            <td><%= item.mail %></td>
+        </tr>
+    <% end %>
+</table>

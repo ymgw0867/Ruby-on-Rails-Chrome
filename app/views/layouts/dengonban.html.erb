@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sample</title>
+    <title>伝言板</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <h1 class="title">簡単伝言板</h1>
     <%= yield %>
+    <div class="footer">CopyWrite Keiichi-Yamagiwa 2020 </div>
   </body>
 </html>

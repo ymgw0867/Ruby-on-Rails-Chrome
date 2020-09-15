@@ -5,7 +5,7 @@ class DengonbanController < ApplicationController
     super
     begin
       @dengon_data = JSON.parse(File.read("data.txt"))
-    rescue => exception
+    rescue
       @dengon_data = Hash.new
     end
 

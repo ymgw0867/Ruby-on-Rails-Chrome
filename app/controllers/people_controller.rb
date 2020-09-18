@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   def index
     @msg = 'Person data'
-    @data = Person.all    
+    @data = Person.all
   end
 
   def show
@@ -12,11 +12,11 @@ class PeopleController < ApplicationController
   end
 
   def add
-    @msg = "add new data."
+    @msg = 'add new data.'
     @person = Person.new
   end
 
-  #protect_from_forgery
+  # protect_from_forgery
 
   def create
     @person = Person.new person_params
@@ -26,7 +26,6 @@ class PeopleController < ApplicationController
       @msg = '入力に誤りがあります'
       render 'add'
     end
-
   end
 
   def edit
@@ -48,7 +47,7 @@ class PeopleController < ApplicationController
 
   def find
     @msg='Please type search word...'
-    #@people = Array.new
+    # @people = Array.new
     if request.post? then
       f = params['ff'].split(',')
       @people = Person.all.limit(f[0]).offset(f[1])
@@ -57,10 +56,10 @@ class PeopleController < ApplicationController
     end
   end
 
-  #パーミッション済みのparamsを用意する
+  # パーミッション済みのparamsを用意する
+
   private
   def person_params
     params.require(:person).permit(:name, :age, :mail)
   end
-
 end

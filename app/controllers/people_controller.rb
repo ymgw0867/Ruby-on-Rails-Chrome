@@ -20,10 +20,16 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new person_params
-    if @person.save then
+    if @person.save
       redirect_to '/people'
     else
-      @msg = '入力に誤りがあります'
+      re = ''
+      @person.errors.messages.each do |key, vals|
+        vals.each do |val|
+          re += '<span style = "color:red">' + key.to_s + '</span> ' + val + '<br>'
+        end
+      end
+      @msg = re.html_safe
       render 'add'
     end
   end
@@ -46,9 +52,9 @@ class PeopleController < ApplicationController
   end
 
   def find
-    @msg='Please type search word...'
+    @msg = 'Please type search word...'
     # @people = Array.new
-    if request.post? then
+    if request.post?
       f = params['ff'].split(',')
       @people = Person.all.limit(f[0]).offset(f[1])
     else
